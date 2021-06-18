@@ -1,0 +1,44 @@
+package firstp;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class test {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan=new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int itr=scan.nextInt();
+		int p1[]=new int[itr];
+		int p2[]=new int[itr];
+		
+		for(int i=0;i<itr;i++) {
+			String s[]=br.readLine().split(" ");
+			p1[i]=Integer.parseInt(s[0]);
+			p2[i]=Integer.parseInt(s[1]);
+			
+		}
+int lead1=0;
+int lead2=0;
+		for(int j=0;j<p1.length;j++) {
+			if(p1[j]>p2[j]) {
+				int temp1=p1[j]-p2[j];
+				if(temp1>lead1)
+					lead1=temp1;
+			}
+			else
+			{
+				int temp2=p2[j]-p1[j];
+				if(temp2>lead2)
+					lead2=temp2;
+			}
+		}
+		if(lead1>lead2)
+			System.out.println("Player 1"+" "+lead1);
+		else
+			System.out.println("Player 2"+" "+lead2);
+		
+	}
+}
