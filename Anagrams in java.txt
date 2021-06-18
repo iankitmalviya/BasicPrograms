@@ -1,0 +1,113 @@
+
+public class Main
+
+{
+	     
+static boolean isAnagram(String a, String b) 
+{
+        // Complete the function
+        
+char[] arrA=a.toLowerCase().toCharArray();
+
+char[] arrB=b.toLowerCase().toCharArray();
+   
+//Sort character in an array
+       
+
+
+int l1=a.length();
+
+int l2=b.length();
+
+char temp;
+
+for(int x=0;x<l1;x++)
+
+{
+for(int y=x;y<l1;y++)
+
+{
+   if(arrA[x]>arrA[y]) 
+
+   {
+    temp=arrA[x];
+   
+ arrA[x]=arrA[y];
+    
+
+arrA[y]=temp;
+   }
+
+}
+
+}
+
+for(int p=0;p<l2;p++)
+
+{
+for(int q=p;q<l2;q++)
+
+  {
+   if(arrB[p]>arrB[q]) 
+   
+     {
+    temp=arrB[p];
+ 
+   arrB[p]=arrB[q];
+
+    arrB[q]=temp;
+   }
+
+}
+
+}
+       
+ if(l1==l2)
+ 
+
+       { 
+
+for(int i=0;i<l1;i++)
+
+{
+    
+    if(arrA[i]!=arrB[i])
+
+    {
+       
+ return false;
+  
+  }
+
+}
+    
+   
+ 
+
+return true;
+        }
+ 
+       else
+     
+   return false;
+    }
+
+   
+ public static void main(String[] args) 
+{
+    
+        Scanner scan = new Scanner(System.in);
+   
+     String a = scan.next();
+       
+ String b = scan.next();
+       
+ scan.close();
+     
+   boolean ret = isAnagram(a, b);
+     
+   System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+ 
+   }
+
+}
